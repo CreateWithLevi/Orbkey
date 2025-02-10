@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import WaitlistForm from "./WaitlistForm";
 import KeyboardModel from "./KeyboardModel";
 
 interface HeroSectionProps {
@@ -17,9 +17,14 @@ const HeroSection = ({
   onCtaClick = () => {},
 }: HeroSectionProps) => {
   return (
-    <section className="w-full min-h-screen bg-gray-900 text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 py-16 lg:py-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="w-full min-h-screen bg-white text-black relative overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-full h-full">
+          <KeyboardModel scale={2} />
+        </div>
+      </div>
+      <div className="max-w-3xl mx-auto px-4 py-16 lg:py-24 relative z-10 text-center">
+        <div className="space-y-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -29,23 +34,8 @@ const HeroSection = ({
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
               {title}
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-300">{subtitle}</p>
-            <div className="flex gap-4">
-              <Button
-                size="lg"
-                onClick={onCtaClick}
-                className="bg-primary hover:bg-primary/90"
-              >
-                {ctaText}
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-white border-white hover:bg-white/10"
-              >
-                Learn More
-              </Button>
-            </div>
+            <p className="text-xl lg:text-2xl text-gray-600">{subtitle}</p>
+            <WaitlistForm />
           </motion.div>
 
           <motion.div

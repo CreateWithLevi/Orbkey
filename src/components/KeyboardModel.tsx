@@ -13,7 +13,7 @@ const KeyboardModel = ({
   modelUrl = "https://prod.spline.design/0YUeBEhF-PU6Mgmg/scene.splinecode",
 }: KeyboardModelProps) => {
   return (
-    <div className="w-full h-full min-h-[400px] bg-gray-900 rounded-xl overflow-hidden">
+    <div className="w-full h-full min-h-[400px] bg-white rounded-xl overflow-hidden">
       <Spline scene={modelUrl} />
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import HeroSection from "./HeroSection";
+import ColorVariants from "./ColorVariants";
 import ComparisonSection from "./ComparisonSection";
 import ProductSpecs from "./ProductSpecs";
 import { motion } from "framer-motion";
@@ -24,7 +25,7 @@ interface HomeProps {
 }
 
 const Home = ({
-  title = "Revolutionary Spherical Keyboard",
+  title = "OrbKey",
   subtitle = "Experience the future of typing with our ergonomic spherical design",
   modelUrl = "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=1000",
   features,
@@ -39,6 +40,8 @@ const Home = ({
         transition={{ duration: 0.5 }}
       >
         <HeroSection title={title} subtitle={subtitle} modelUrl={modelUrl} />
+
+        <ColorVariants />
 
         <ComparisonSection features={features} />
 

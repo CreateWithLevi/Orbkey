@@ -68,7 +68,7 @@ const ColorVariants = ({
             >
               <div className="relative aspect-square mb-4 group">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <KeyboardModel modelUrl={variant.modelUrl} />
+                <KeyboardModel modelUrl={variant.modelUrl} height="400px" />
                 <Badge
                   className="absolute top-3 right-3 bg-[#22C55E] text-white border-0 font-medium px-2 py-0.5 text-xs"
                   variant="outline"

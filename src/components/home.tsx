@@ -1,5 +1,7 @@
 import React from "react";
 import HeroSection from "./HeroSection";
+
+import StatsSection from "./StatsSection";
 import ColorVariants from "./ColorVariants";
 import ComparisonSection from "./ComparisonSection";
 import ProductSpecs from "./ProductSpecs";
@@ -26,7 +28,7 @@ interface HomeProps {
 
 const Home = ({
   title = "OrbKey",
-  subtitle = "Experience the future of typing with our ergonomic spherical design",
+  subtitle = "Experience the future of typing",
   modelUrl = "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=1000",
   features,
   specs,
@@ -40,6 +42,8 @@ const Home = ({
         transition={{ duration: 0.5 }}
       >
         <HeroSection title={title} subtitle={subtitle} modelUrl={modelUrl} />
+
+        <StatsSection />
 
         <ColorVariants />
 

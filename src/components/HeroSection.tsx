@@ -25,7 +25,7 @@ const HeroSection = ({
             className="absolute inset-0 bg-transparent"
             style={{ pointerEvents: "auto" }}
           ></div>
-          <div className="absolute bottom-0 right-0 bg-white py-16 px-24 z-[9999] translate-y-1">
+          <div className="absolute bottom-0 right-0 bg-white py-16 px-32 z-[9999] translate-y-1">
             {/* Empty div to cover Spline watermark */}
           </div>
         </div>

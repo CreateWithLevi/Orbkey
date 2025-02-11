@@ -5,6 +5,8 @@ import StatsSection from "./StatsSection";
 import ColorVariants from "./ColorVariants";
 import ComparisonSection from "./ComparisonSection";
 import ProductSpecs from "./ProductSpecs";
+import ProductMockup from "./ProductMockup";
+import Footer from "./Footer";
 import { motion } from "framer-motion";
 
 interface HomeProps {
@@ -47,9 +49,13 @@ const Home = ({
 
         <ColorVariants />
 
+        <ProductMockup />
+
         <ComparisonSection features={features} />
 
         <ProductSpecs specs={specs} price={price} />
+
+        <Footer />
       </motion.main>
     </div>
   );

@@ -29,13 +29,13 @@ const ColorVariants = ({
     {
       name: "Desert Sand",
       color: "#D2B48C",
-      price: 199.99,
+      price: 249.99,
       modelUrl: "https://prod.spline.design/4PpxJsixxPdW8CKS/scene.splinecode",
     },
     {
       name: "Obsidian Black",
       color: "black",
-      price: 199.99,
+      price: 249.99,
       modelUrl: "https://prod.spline.design/MOFIN26XJxkpcQJ1/scene.splinecode",
     },
   ],
@@ -70,27 +70,34 @@ const ColorVariants = ({
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <KeyboardModel modelUrl={variant.modelUrl} height="400px" />
                 <Badge
-                  className="absolute top-3 right-3 bg-[#22C55E] text-white border-0 font-medium px-2 py-0.5 text-xs"
+                  className={`absolute top-3 right-3 ${variant.color === "white" ? "bg-[#22C55E]" : "bg-blue-500"} text-white border-0 font-medium px-2 py-0.5 text-xs`}
                   variant="outline"
                 >
-                  25% OFF
+                  {variant.color === "white" ? "25% OFF" : "NEW"}
                 </Badge>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-base font-medium">{variant.name}</span>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-500 line-through">
-                      ${variant.price}
-                    </span>
-                    <span className="text-sm font-medium text-[#22C55E]">
-                      25% OFF
-                    </span>
+                    {variant.color === "white" ? (
+                      <>
+                        <span className="text-sm text-gray-500 line-through">
+                          ${variant.price}
+                        </span>
+                        <span className="text-sm font-medium text-[#22C55E]">
+                          25% OFF
+                        </span>
+                      </>
+                    ) : null}
                   </div>
                 </div>
                 <div className="flex items-center gap-1">
                   <span className="text-lg font-semibold">
-                    ${discountedPrice(variant.price)}
+                    $
+                    {variant.color === "white"
+                      ? discountedPrice(variant.price)
+                      : variant.price.toFixed(2)}
                   </span>
                 </div>
               </div>

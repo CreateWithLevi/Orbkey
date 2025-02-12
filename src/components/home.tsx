@@ -31,7 +31,7 @@ interface HomeProps {
 const Home = ({
   title = "OrbKey",
   subtitle = "Experience the future of typing",
-  modelUrl = "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=1000",
+  modelUrl,
   features,
   specs,
   price,
@@ -43,7 +43,7 @@ const Home = ({
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <HeroSection title={title} subtitle={subtitle} modelUrl={modelUrl} />
+        <HeroSection title={title} subtitle={subtitle} />
 
         <StatsSection />
 
@@ -51,9 +51,9 @@ const Home = ({
 
         <ProductMockup />
 
-        <ComparisonSection features={features} />
+        <ComparisonSection />
 
-        <ProductSpecs specs={specs} price={price} />
+        <ProductSpecs />
 
         <Footer />
       </motion.main>

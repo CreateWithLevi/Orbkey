@@ -38,16 +38,16 @@ export default function WaitlistForm() {
     >
       <Input
         type="email"
-        placeholder="Email"
+        placeholder="Try typing your email to see the magic..."
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="flex-1 h-12 text-base"
+        className="flex-1 h-12 text-base bg-white/50 backdrop-blur-sm placeholder:text-gray-600 border border-input focus:border-input focus:ring-input rounded-md"
       />
       <Button
         type="submit"
         disabled={loading}
-        className="h-12 bg-[#111827] hover:bg-[#1f2937] text-base px-6"
+        className="h-12 bg-blue-600 text-white hover:bg-blue-700 text-base px-6 transition-colors"
       >
         {loading ? "Joining..." : "Join Waitlist"}
       </Button>

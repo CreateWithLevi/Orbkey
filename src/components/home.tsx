@@ -1,7 +1,9 @@
 import React from "react";
+import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
+import LoadingScreen from "./LoadingScreen";
 
-import StatsSection from "./StatsSection";
+import StatsPage from "./StatsPage";
 import ColorVariants from "./ColorVariants";
 import ComparisonSection from "./ComparisonSection";
 import ProductSpecs from "./ProductSpecs";
@@ -38,15 +40,14 @@ const Home = ({
 }: HomeProps) => {
   return (
     <div className="min-h-screen w-full bg-white">
+      <Navbar />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
+        <LoadingScreen />
         <HeroSection title={title} subtitle={subtitle} />
-
-        <StatsSection />
-
         <ColorVariants />
 
         <ProductMockup />

@@ -56,11 +56,11 @@ const ComparisonSection = ({
       description: "Desktop space required for the keyboard",
     },
   ],
-  title = "Traditional vs Spherical",
-  subtitle = "See how our revolutionary design compares to conventional keyboards",
+  title = "Meet the Spherical Keyboard",
+  subtitle = "Experience enhanced comfort and precise control with its innovative spherical design.",
 }: ComparisonSectionProps) => {
   return (
-    <div className="w-full min-h-[600px] bg-gray-50 py-16 px-4">
+    <div className="w-full min-h-[600px] bg-gray-50 py-24 px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -72,54 +72,44 @@ const ComparisonSection = ({
           <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <Card className="p-8 bg-white">
-          <div className="grid grid-cols-12 gap-4 mb-6">
-            <div className="col-span-6">
-              <h3 className="text-lg font-semibold">Feature</h3>
-            </div>
-            <div className="col-span-3 text-center">
-              <Badge variant="outline" className="bg-gray-100">
-                Traditional
-              </Badge>
-            </div>
-            <div className="col-span-3 text-center">
-              <Badge variant="outline" className="bg-primary/10 text-primary">
-                Spherical
-              </Badge>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="relative h-[300px] lg:h-auto lg:row-span-2">
+            <img src="/images/feature_img-2.jpg" alt="Ergonomic Design" className="w-full h-full object-cover rounded-2xl" />
+            <div className="absolute inset-0 flex items-center lg:items-start lg:pt-8 justify-center lg:justify-start lg:px-8">
+              <div className="text-center lg:text-left text-black">
+                <h3 className="text-xl font-semibold pb-1">Ergonomic Design</h3>
+                <p className="text-sm">Natural hand positioning for reduced strain</p>
+              </div>
             </div>
           </div>
-
-          <div className="space-y-6">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="grid grid-cols-12 gap-4 items-center py-4 border-b last:border-b-0"
-              >
-                <div className="col-span-6">
-                  <h4 className="font-medium">{feature.feature}</h4>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
-                </div>
-                <div className="col-span-3 flex justify-center">
-                  {feature.traditional ? (
-                    <Check className="h-6 w-6 text-green-500" />
-                  ) : (
-                    <X className="h-6 w-6 text-red-500" />
-                  )}
-                </div>
-                <div className="col-span-3 flex justify-center">
-                  {feature.spherical ? (
-                    <Check className="h-6 w-6 text-green-500" />
-                  ) : (
-                    <X className="h-6 w-6 text-red-500" />
-                  )}
-                </div>
-              </motion.div>
-            ))}
+          <div className="relative h-[300px] lg:h-auto">
+            <img src="/images/feature_img-4.jpg" alt="Customizable Layout" className="w-full h-full object-cover rounded-2xl" />
+            <div className="absolute inset-0 flex items-center lg:items-start lg:pt-8 justify-center lg:justify-start lg:px-8">
+              <div className="text-center lg:text-left text-black">
+                <h3 className="text-xl font-semibold pb-1">Customizable Layout</h3>
+                <p className="text-sm">Adjustable key mappings for personal preference</p>
+              </div>
+            </div>
           </div>
-        </Card>
+          <div className="relative h-[300px] lg:h-auto">
+            <img src="/images/feature_img-1.jpg" alt="Space Efficiency" className="w-full h-full object-cover rounded-2xl" />
+            <div className="absolute inset-0 flex items-center lg:items-start lg:pt-8 justify-center lg:justify-start lg:px-8">
+              <div className="text-center lg:text-left text-black">
+                <h3 className="text-xl font-semibold pb-1">Space Efficiency</h3>
+                <p className="text-sm">Desktop space required for the keyboard</p>
+              </div>
+            </div>
+          </div>
+          <div className="relative h-[300px] lg:h-auto lg:col-span-2">
+            <img src="/images/feature_img-3.jpg" alt="Wrist Support" className="w-full h-full object-cover rounded-2xl" />
+            <div className="absolute inset-0 flex items-center lg:items-start lg:pt-8 justify-center lg:justify-end lg:px-8">
+              <div className="text-center lg:text-right text-black">
+                <h3 className="text-xl font-semibold pb-1">Wrist Support</h3>
+                <p className="text-sm">Built-in support for comfortable typing</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

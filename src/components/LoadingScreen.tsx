@@ -28,7 +28,7 @@ const LoadingScreen = () => {
             startNumber={1}
             duration={3}
             suffix="%"
-            label="Loading"
+            label=""
           />
         </motion.div>
       )}

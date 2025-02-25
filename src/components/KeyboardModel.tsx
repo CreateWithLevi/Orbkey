@@ -11,7 +11,7 @@ interface KeyboardModelProps {
 }
 
 const KeyboardModel = ({
-  modelUrl = "https://prod.spline.design/0YUeBEhF-PU6Mgmg/scene.splinecode",
+  modelUrl = "https://prod.spline.design/kGv7B8fqiEi2xjtj/scene.splinecode",
   height = "100vh",
 }: KeyboardModelProps) => {
   return (

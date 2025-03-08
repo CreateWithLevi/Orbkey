@@ -3,13 +3,12 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import KeyboardModel from "./KeyboardModel";
 
 interface ColorVariant {
   name: string;
   color: string;
   price: number;
-  modelUrl: string;
+  videoUrl: string;  // Changed from modelUrl
 }
 
 interface ColorVariantsProps {
@@ -24,22 +23,22 @@ const ColorVariants = ({
       name: "Pure White",
       color: "white",
       price: 199.99,
-      modelUrl: "https://prod.spline.design/oQwch80ldxvMwJaL/scene.splinecode",
+      videoUrl: "images/OrbKey_W.webm",
     },
     {
       name: "Desert Sand",
       color: "#D2B48C",
       price: 249.99,
-      modelUrl: "https://prod.spline.design/4PpxJsixxPdW8CKS/scene.splinecode",
+      videoUrl: "images/OrbKey_G.webm",
     },
     {
       name: "Obsidian Black",
       color: "black",
       price: 249.99,
-      modelUrl: "https://prod.spline.design/MOFIN26XJxkpcQJ1/scene.splinecode",
+      videoUrl: "images/OrbKey_B.webm",
     },
   ],
-  onSelectColor = () => {},
+  onSelectColor = () => { },
   selectedColor = "#1a1a1a",
 }: ColorVariantsProps) => {
   const discountedPrice = (price: number) => (price * 0.75).toFixed(2);
@@ -68,7 +67,14 @@ const ColorVariants = ({
             >
               <div className="relative aspect-square mb-4 group">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <KeyboardModel modelUrl={variant.modelUrl} height="400px" />
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                  src={variant.videoUrl}
+                />
                 <Badge
                   className={`absolute top-3 right-3 ${variant.color === "white" ? "bg-[#22C55E]" : "bg-blue-500"} text-white border-0 font-medium px-2 py-0.5 text-xs`}
                   variant="outline"

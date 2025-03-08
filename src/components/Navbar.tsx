@@ -7,7 +7,7 @@ interface NavbarProps {
   onPreOrder?: () => void;
 }
 
-const Navbar = ({ onPreOrder = () => {} }: NavbarProps) => {
+const Navbar = ({ onPreOrder = () => { } }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

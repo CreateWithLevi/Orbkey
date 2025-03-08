@@ -8,13 +8,15 @@ interface HeroSectionProps {
   subtitle?: string;
   ctaText?: string;
   onCtaClick?: () => void;
+  onWaitlistSuccess?: (message: string) => void;
 }
 
 const HeroSection = ({
   title = "Revolutionary Spherical Keyboard",
   subtitle = "Experience the future of typing",
   ctaText = "Pre-order Now",
-  onCtaClick = () => {},
+  onCtaClick = () => { },
+  onWaitlistSuccess,
 }: HeroSectionProps) => {
   return (
     <section className="w-full h-screen bg-white text-black relative overflow-hidden flex items-center">
@@ -25,9 +27,6 @@ const HeroSection = ({
             className="absolute inset-0 bg-transparent"
             style={{ pointerEvents: "auto" }}
           ></div>
-          <div className="absolute bottom-0 right-0 bg-white py-16 px-32 z-[9999] translate-y-1">
-            {/* Empty div to cover Spline watermark */}
-          </div>
         </div>
       </div>
       <div className="max-w-3xl mx-auto px-4 relative z-10 text-center">
@@ -42,7 +41,7 @@ const HeroSection = ({
               {title}
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600">{subtitle}</p>
-            <WaitlistForm />
+            <WaitlistForm onSuccess={onWaitlistSuccess} />
           </motion.div>
         </div>
       </div>

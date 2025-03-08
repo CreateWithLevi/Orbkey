@@ -4,7 +4,12 @@ import { Input } from "@/components/ui/input";
 import { saveEmail } from "@/lib/supabase";
 import { useToast } from "@/components/ui/use-toast";
 
-export default function WaitlistForm() {
+interface WaitlistFormProps {
+  className?: string;
+  onSuccess?: (message: string) => void;
+}
+
+export default function WaitlistForm({ className = "max-w-sm mx-auto", onSuccess }: WaitlistFormProps) {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
@@ -15,17 +20,29 @@ export default function WaitlistForm() {
 
     try {
       await saveEmail(email);
+      const successMsg = "Thanks for joining our waitlist! We'll keep you updated.";
       toast({
         title: "Success!",
-        description: "You've been added to our waitlist.",
+        description: successMsg,
       });
       setEmail("");
+      onSuccess?.(successMsg);
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
+      if (error instanceof Error && error.message === "EMAIL_EXISTS") {
+        const existsMsg = "This email is already on our waitlist. We'll continue to keep you updated.";
+        toast({
+          title: "Already Registered",
+          description: existsMsg,
+        });
+        setEmail("");
+        onSuccess?.(existsMsg);
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -34,11 +51,11 @@ export default function WaitlistForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-sm mx-auto space-x-2"
+      className={`flex w-full space-x-2 ${className}`}
     >
       <Input
         type="email"
-        placeholder="Try typing your email to see the magic..."
+        placeholder="Enter your email..."
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import LoadingScreen from "./LoadingScreen";
-
+import WaitlistDialog from "./WaitlistDialog";
+import Alert from "./Alert";
 import StatsPage from "./StatsPage";
 import ColorVariants from "./ColorVariants";
 import ComparisonSection from "./ComparisonSection";
@@ -38,26 +39,46 @@ const Home = ({
   specs,
   price,
 }: HomeProps) => {
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const handleWaitlistSuccess = (message: string) => {
+    setIsWaitlistOpen(false);
+    setAlertMessage(message);
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 3000);
+  };
+
   return (
     <div className="min-h-screen w-full bg-white">
-      <Navbar />
+      <LoadingScreen />
+      <Alert
+        show={showAlert}
+        message={alertMessage}
+      />
+      <Navbar onPreOrder={() => setIsWaitlistOpen(true)} />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <LoadingScreen />
-        <HeroSection title={title} subtitle={subtitle} />
+        <HeroSection
+          title={title}
+          subtitle={subtitle}
+          onWaitlistSuccess={(msg) => handleWaitlistSuccess(msg)}
+        />
         <ColorVariants />
-
         <ProductMockup />
-
         <ComparisonSection />
-
-        <ProductSpecs />
-
+        <ProductSpecs onPreOrder={() => setIsWaitlistOpen(true)} />
         <Footer />
       </motion.main>
+      <WaitlistDialog
+        open={isWaitlistOpen}
+        onOpenChange={setIsWaitlistOpen}
+        onSuccess={(msg) => handleWaitlistSuccess(msg)}
+      />
     </div>
   );
 };

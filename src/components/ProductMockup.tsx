@@ -18,7 +18,7 @@ const ProductMockup = ({
         className="absolute inset-0 bg-cover bg-bottom"
         style={{
           backgroundImage: `url(${imageUrl})`,
-          backgroundPosition: "right bottom",
+          backgroundPosition: "bottom",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent" />

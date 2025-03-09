@@ -23,6 +23,13 @@ const Navbar = ({ onPreOrder = () => { } }: NavbarProps) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav
       className={cn(
@@ -42,31 +49,31 @@ const Navbar = ({ onPreOrder = () => { } }: NavbarProps) => {
               OrbKey
             </a>
             <div className="hidden md:flex items-center space-x-8 ml-12">
-              <a
-                href="#features"
+              <button
+                onClick={() => scrollToSection('color-variants')}
+                className="text-sm font-medium transition-colors duration-300 text-gray-900/80 hover:text-gray-900"
+              >
+                Colors
+              </button>
+              <button
+                onClick={() => scrollToSection('features')}
                 className="text-sm font-medium transition-colors duration-300 text-gray-900/80 hover:text-gray-900"
               >
                 Features
-              </a>
-              <a
-                href="#specs"
+              </button>
+              <button
+                onClick={() => scrollToSection('specs')}
                 className="text-sm font-medium transition-colors duration-300 text-gray-900/80 hover:text-gray-900"
               >
                 Specs
-              </a>
-              <a
-                href="#compare"
-                className="text-sm font-medium transition-colors duration-300 text-gray-900/80 hover:text-gray-900"
-              >
-                Compare
-              </a>
+              </button>
             </div>
           </div>
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
               className="text-sm font-medium transition-colors duration-300 text-gray-900/80 hover:text-gray-900"
-              onClick={() => (window.location.href = "#contact")}
+              onClick={() => window.location.href = "mailto:jlstudio.xyz@gmail.com"}
             >
               Contact
             </Button>

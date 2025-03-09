@@ -62,17 +62,17 @@ const ColorVariants = ({
           {variants.map((variant) => (
             <Card
               key={variant.color}
-              className={`p-4 cursor-pointer transition-all border rounded-2xl hover:border-gray-300 ${selectedColor === variant.color ? "ring-2 ring-primary" : ""}`}
+              className={`p-4 cursor-pointer transition-all rounded-2xl hover:border-gray-300 ${selectedColor === variant.color ? "ring-2 ring-primary" : ""}`}
               onClick={() => onSelectColor(variant.color)}
             >
-              <div className="relative aspect-square mb-4 group">
+              <div className="relative aspect-square mb-4 group overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <video
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 scale-105 group-hover:scale-125"
                   src={variant.videoUrl}
                 />
                 <Badge

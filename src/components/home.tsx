@@ -68,10 +68,16 @@ const Home = ({
           subtitle={subtitle}
           onWaitlistSuccess={(msg) => handleWaitlistSuccess(msg)}
         />
-        <ColorVariants />
+        <section id="color-variants">
+          <ColorVariants />
+        </section>
         <ProductMockup />
-        <ComparisonSection />
-        <ProductSpecs onPreOrder={() => setIsWaitlistOpen(true)} />
+        <section id="features">
+          <ComparisonSection />
+        </section>
+        <section id="specs">
+          <ProductSpecs onPreOrder={() => setIsWaitlistOpen(true)} />
+        </section>
         <Footer />
       </motion.main>
       <WaitlistDialog
